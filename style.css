@@ -1497,20 +1497,7 @@ body {
   animation-delay: -1s;
 }
 
-@keyframes l2 {
-  0% {box-shadow: 0 0 0 0 #0004;}
-  100% {box-shadow: 0 0 0 40px #0000;}
-}
 
-.fade-in {
-  opacity: 0;
-  animation: fadeInAnimation 0.5s ease-in-out forwards;
-}
-
-@keyframes fadeInAnimation {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
 
 
