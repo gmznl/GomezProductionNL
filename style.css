@@ -962,7 +962,6 @@ h6 { font-size: 0.67em; font-weight: bold; }
 
   .gallery__media {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     padding: 2rem 0;
   }
