@@ -1458,6 +1458,7 @@ body {
 }
 
 #loader {
+  display:none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1473,6 +1474,7 @@ body {
 }
 
 .loader {
+  display:none;
   width: 40px; /* Increased size for better visibility */
   aspect-ratio: 1;
   border-radius: 50%;
