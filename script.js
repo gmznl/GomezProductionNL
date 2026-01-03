@@ -54,22 +54,26 @@ document.addEventListener('DOMContentLoaded', () => {
     headerNavItems.forEach(li => {
         li.addEventListener('click', function (e) {
             const targetLink = this.querySelector('a');
-            if (targetLink) {
+            if (!targetLink) return;
+
+            const href = targetLink.getAttribute('href');
+
+            // ✅ ONLY block default for same-page anchors
+            if (href.startsWith('#')) {
                 e.preventDefault();
 
-                const targetSection = document.querySelector(targetLink.getAttribute('href'));
+                const targetSection = document.querySelector(href);
                 if (targetSection) {
                     targetSection.scrollIntoView({ behavior: 'smooth' });
                 }
+            }
 
-                removeActiveClass();
-                addActiveClass(this);
+            removeActiveClass();
+            addActiveClass(this);
 
-
-                if (window.innerWidth <= 800) {
-                    toggleMenu.classList.remove('open');
-                    headerNav.classList.remove('open');
-                }
+            if (window.innerWidth <= 800) {
+                toggleMenu.classList.remove('open');
+                headerNav.classList.remove('open');
             }
         });
     });
@@ -82,6 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /*------Motherfuckin Gallery------*/
 document.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname.split('/').pop();
+    if (currentPage === 'index.html' || currentPage === '') return;
+    
     const lightbox = document.querySelector('.gallery__lightbox');
     const galleryItems = document.querySelectorAll('.gallery__item img');
     const lightboxImage = document.querySelector('.gallery__lightbox-image');
